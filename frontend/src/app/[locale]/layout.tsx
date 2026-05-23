@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
-import { Inter, Cormorant_Garamond, Cairo } from 'next/font/google';
+import { Poppins, Cormorant_Garamond, Cairo } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing, type Locale } from '@/i18n/routing';
@@ -11,10 +11,12 @@ import FloatingCTAs from '@/components/layout/FloatingCTAs';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import StructuredData from '@/components/seo/StructuredData';
 import CompareTray from '@/components/properties/CompareTray';
+import { settingsApi, tryOrFallback } from '@/lib/server-api';
 import '../globals.css';
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
@@ -107,6 +109,12 @@ export async function generateMetadata({
         'max-video-preview': -1,
       },
     },
+    icons: {
+      icon: [{ url: '/favicon.png', type: 'image/png' }],
+      shortcut: '/favicon.png',
+      apple: '/favicon.png',
+    },
+    manifest: '/site.webmanifest',
   };
 }
 
@@ -131,22 +139,26 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
+  // Brand settings come from Mongo (admin → Settings). Empty object if API down.
+  const settings = await tryOrFallback(() => settingsApi.get(), {});
+  const brand = settings.brand || {};
+
   return (
     <html
       lang={locale}
       dir={dir}
-      className={`${inter.variable} ${cormorant.variable} ${cairo.variable}`}
+      className={`${poppins.variable} ${cormorant.variable} ${cairo.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-ink-900 font-sans text-ivory antialiased">
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll />
           <StructuredData locale={locale} />
-          <Header />
+          <Header brand={brand} />
           <main id="main" className="relative overflow-x-clip">
             {children}
           </main>
-          <Footer />
+          <Footer brand={brand} />
           <FloatingCTAs />
           <CompareTray />
         </NextIntlClientProvider>

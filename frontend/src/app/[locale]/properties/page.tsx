@@ -8,7 +8,10 @@ import { propertiesApi, tryOrFallback } from '@/lib/server-api';
 import { siteUrl } from '@/lib/utils';
 import type { Locale } from '@/i18n/routing';
 import PropertyCard from '@/components/home/PropertyCard';
-import PropertyFilters from '@/components/properties/PropertyFilters';
+import PropertyFilters, {
+  ActiveFilterChips,
+  MobileFilterTrigger,
+} from '@/components/properties/PropertyFilters';
 import SortDropdown from '@/components/properties/SortDropdown';
 import Pagination from '@/components/properties/Pagination';
 import ViewToggle from '@/components/properties/ViewToggle';
@@ -50,6 +53,12 @@ export default async function PropertiesPage({ params, searchParams }: PageProps
   const query = parseQuery(sp);
   const view = (Array.isArray(sp.view) ? sp.view[0] : sp.view) === 'map' ? 'map' : 'list';
 
+  // True if the visitor has narrowed the result set in any way.
+  const hasActiveFilters = !!(
+    query.q || query.location || query.type || query.status ||
+    query.beds || query.baths || query.priceMin || query.priceMax
+  );
+
   // Fetch from the live API; fall back to mock data so dev stays green pre-seed.
   // Map view needs the full filtered set, so we ask the API for everything matching the filters.
   const apiResult = await tryOrFallback(
@@ -69,15 +78,46 @@ export default async function PropertiesPage({ params, searchParams }: PageProps
     null
   );
 
-  const usingMock = apiResult === null || apiResult.data.length === 0;
+  // Decide whether to render the live API results or the bundled mock dataset.
+  //   - API call failed (network/server down)             → mock + apply filters locally
+  //   - Mongo is genuinely empty (no properties seeded)   → mock + apply filters locally
+  //   - Mongo has data but the current filter matches 0   → trust the API, show empty state
+  //
+  // When filters are active AND the filtered result is empty, we can't tell from this single
+  // call whether the filter is to blame or Mongo is empty. We fire a tiny probe to disambiguate.
+  const apiFailed = apiResult === null;
+  let mongoEmpty = false;
+  if (!apiFailed && apiResult!.pagination.total === 0) {
+    if (hasActiveFilters) {
+      const probe = await tryOrFallback(() => propertiesApi.list({ limit: 1 }), null);
+      mongoEmpty = probe !== null && probe.pagination.total === 0;
+    } else {
+      mongoEmpty = true;
+    }
+  }
+  const usingMock = apiFailed || mongoEmpty;
+
   const filtered = usingMock
     ? applyFilters(mockProperties, query)
     : apiResult!.data;
-  const { items, total, pages, page } = usingMock
-    ? paginate(filtered, query.page)
-    : view === 'map'
-      ? { items: filtered, total: filtered.length, pages: 1, page: 1 }
-      : { items: filtered, total: apiResult!.pagination.total, pages: apiResult!.pagination.pages, page: apiResult!.pagination.page };
+
+  let items: typeof filtered;
+  let total: number;
+  let pages: number;
+  let page: number;
+  if (view === 'map') {
+    items = filtered;
+    total = filtered.length;
+    pages = 1;
+    page = 1;
+  } else if (usingMock) {
+    ({ items, total, pages, page } = paginate(filtered, query.page));
+  } else {
+    items = filtered;
+    total = apiResult!.pagination.total;
+    pages = apiResult!.pagination.pages;
+    page = apiResult!.pagination.page;
+  }
 
   const baseQuery: Record<string, string | undefined> = {
     q: query.q,
@@ -114,14 +154,19 @@ export default async function PropertiesPage({ params, searchParams }: PageProps
 
             <div>
               <div className="flex flex-wrap items-center justify-between gap-4">
-                <p className="text-sm text-ivory/70">
-                  {t('results_count', { count: total })}
-                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <MobileFilterTrigger />
+                  <p className="text-sm text-ivory/70">
+                    {t('results_count', { count: total })}
+                  </p>
+                </div>
                 <div className="flex flex-wrap items-center gap-3">
                   <ViewToggle />
                   <SortDropdown />
                 </div>
               </div>
+
+              <ActiveFilterChips />
 
               {items.length === 0 ? (
                 <EmptyState />

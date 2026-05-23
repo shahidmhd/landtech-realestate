@@ -19,10 +19,17 @@ const nav = [
   { key: 'contact', href: '/contact' },
 ] as const;
 
-export default function Header() {
+interface HeaderBrand {
+  name?: string;
+  logo?: string;
+}
+
+export default function Header({ brand }: { brand?: HeaderBrand } = {}) {
   const t = useTranslations('nav');
   const tBrand = useTranslations('brand');
   const locale = useLocale();
+  const brandName = brand?.name || tBrand('name');
+  const logoUrl = brand?.logo;
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,12 +62,23 @@ export default function Header() {
             : 'bg-transparent'
         )}
       >
-        <div className="container-luxe flex h-20 items-center justify-between">
-          <Link href="/" className="group flex items-center gap-3" aria-label={tBrand('name')}>
-            <Logo />
-            <span className="hidden font-display text-xl tracking-wide text-ivory transition-colors group-hover:text-gold sm:block">
-              {tBrand('name')}
-            </span>
+        <div className="container-luxe flex h-24 items-center justify-between md:h-28">
+          <Link href="/" className="group flex items-center gap-3" aria-label={brandName}>
+            {logoUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logoUrl}
+                alt={brandName}
+                className="h-16 w-auto max-w-[340px] object-contain transition-opacity group-hover:opacity-80 md:h-20"
+              />
+            ) : (
+              <>
+                <Logo />
+                <span className="hidden font-display text-xl tracking-wide text-ivory transition-colors group-hover:text-gold sm:block">
+                  {brandName}
+                </span>
+              </>
+            )}
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">

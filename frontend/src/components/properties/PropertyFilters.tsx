@@ -50,6 +50,13 @@ export default function PropertyFilters() {
   // sync on URL change (e.g. back/forward)
   useEffect(() => { setState(readState(sp)); }, [sp]);
 
+  // mobile drawer can be opened by the MobileFilterTrigger via a custom event
+  useEffect(() => {
+    const open = () => setOpen(true);
+    window.addEventListener('luxe:open-filters', open);
+    return () => window.removeEventListener('luxe:open-filters', open);
+  }, []);
+
   function push(next: FilterState) {
     const params = new URLSearchParams();
     Object.entries(next).forEach(([k, v]) => { if (v) params.set(k, v); });
@@ -77,8 +84,8 @@ export default function PropertyFilters() {
     .map(([k, v]) => ({ key: k, label: chipLabel(k, v, tc) }));
 
   return (
-    <>
-      {/* desktop sticky panel */}
+    <div>
+      {/* desktop sticky panel — first grid item on lg */}
       <aside className="sticky top-28 hidden h-fit lg:block">
         <FilterPanel
           state={state}
@@ -88,47 +95,7 @@ export default function PropertyFilters() {
         />
       </aside>
 
-      {/* mobile trigger + active chips row */}
-      <div className="flex items-center gap-3 lg:hidden">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-ivory transition-colors hover:border-gold hover:text-gold"
-        >
-          <SlidersHorizontal className="h-4 w-4" /> {t('filters')}
-          {activeChips.length > 0 && (
-            <span className="grid h-5 min-w-[1.25rem] place-items-center rounded-full bg-gold px-1.5 text-[10px] font-medium text-ink-900">
-              {activeChips.length}
-            </span>
-          )}
-        </button>
-      </div>
-
-      {/* active chips row (visible everywhere) */}
-      {activeChips.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {activeChips.map((c) => (
-            <button
-              key={c.key}
-              type="button"
-              onClick={() => update(c.key, '')}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs text-gold transition-colors hover:bg-gold/20"
-            >
-              {c.label}
-              <X className="h-3 w-3" />
-            </button>
-          ))}
-          <button
-            type="button"
-            onClick={clearAll}
-            className="text-xs uppercase tracking-[0.24em] text-ivory/55 transition-colors hover:text-gold"
-          >
-            {t('filters_clear')}
-          </button>
-        </div>
-      )}
-
-      {/* mobile drawer */}
+      {/* mobile drawer (portal-like; doesn't take grid space) */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -178,7 +145,93 @@ export default function PropertyFilters() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
+  );
+}
+
+/**
+ * Mobile-only button that opens the filter drawer. Render this inside the
+ * results column (above the cards) so it sits at the natural reading position.
+ */
+export function MobileFilterTrigger() {
+  const t = useTranslations('properties_index');
+  const sp = useSearchParams();
+  const state = readState(sp);
+  const activeCount = Object.values(state).filter(Boolean).length;
+
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        // Trigger the drawer by dispatching a custom event the main filter listens to.
+        window.dispatchEvent(new Event('luxe:open-filters'));
+      }}
+      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-ivory transition-colors hover:border-gold hover:text-gold lg:hidden"
+    >
+      <SlidersHorizontal className="h-4 w-4" /> {t('filters')}
+      {activeCount > 0 && (
+        <span className="grid h-5 min-w-[1.25rem] place-items-center rounded-full bg-gold px-1.5 text-[10px] font-medium text-ink-900">
+          {activeCount}
+        </span>
+      )}
+    </button>
+  );
+}
+
+/**
+ * Active-filter chips bar. Renders nothing when no filters are active.
+ * Used in the results column above the property grid.
+ */
+export function ActiveFilterChips() {
+  const t = useTranslations('properties_index');
+  const tc = useTranslations('search');
+  const router = useRouter();
+  const pathname = usePathname();
+  const sp = useSearchParams();
+  const state = readState(sp);
+
+  const chips = (Object.entries(state) as [keyof FilterState, string][])
+    .filter(([, v]) => v)
+    .map(([k, v]) => ({ key: k, label: chipLabel(k, v, tc) }));
+
+  if (chips.length === 0) return null;
+
+  function clearKey(key: keyof FilterState) {
+    const next: FilterState = { ...state, [key]: '' };
+    const params = new URLSearchParams();
+    Object.entries(next).forEach(([k, v]) => { if (v) params.set(k, v); });
+    const sort = sp.get('sort');
+    if (sort) params.set('sort', sort);
+    router.replace(`${pathname}${params.toString() ? `?${params}` : ''}` as never, { scroll: false });
+  }
+
+  function clearAll() {
+    const sort = sp.get('sort');
+    const qs = sort ? `?sort=${sort}` : '';
+    router.replace(`${pathname}${qs}` as never, { scroll: false });
+  }
+
+  return (
+    <div className="mt-4 flex flex-wrap items-center gap-2">
+      {chips.map((c) => (
+        <button
+          key={c.key}
+          type="button"
+          onClick={() => clearKey(c.key)}
+          className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs text-gold transition-colors hover:bg-gold/20"
+        >
+          {c.label}
+          <X className="h-3 w-3" />
+        </button>
+      ))}
+      <button
+        type="button"
+        onClick={clearAll}
+        className="text-xs uppercase tracking-[0.24em] text-ivory/55 transition-colors hover:text-gold"
+      >
+        {t('filters_clear')}
+      </button>
+    </div>
   );
 }
 
@@ -314,10 +367,11 @@ function NumberInput({
       type="number"
       inputMode="numeric"
       min={0}
+      size={1}
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="flex-1 rounded-lg border border-white/[0.08] bg-ink-900/50 px-3 py-2 text-sm text-ivory placeholder:text-ivory/30 focus:border-gold/40 focus:outline-none"
+      className="w-full min-w-0 flex-1 rounded-lg border border-white/[0.08] bg-ink-900/50 px-3 py-2 text-sm text-ivory placeholder:text-ivory/30 focus:border-gold/40 focus:outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
     />
   );
 }

@@ -10,6 +10,7 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function SearchBar() {
   const t = useTranslations('search');
+  const tc = useTranslations('common');
   const router = useRouter();
   const [form, setForm] = useState({
     location: '',
@@ -79,7 +80,7 @@ export default function SearchBar() {
                 ]}
               />
             </Field>
-            <Field icon={<Bed />} label={t('beds')} className="md:col-span-1">
+            <Field icon={<Bed />} label={tc('beds')} className="md:col-span-1">
               <Select
                 value={form.beds}
                 onChange={(v) => setForm({ ...form, beds: v })}
@@ -87,7 +88,7 @@ export default function SearchBar() {
                 options={[1, 2, 3, 4, 5, 6].map((n) => ({ v: String(n), l: `${n}+` }))}
               />
             </Field>
-            <Field icon={<Bath />} label={t('baths')} className="md:col-span-1">
+            <Field icon={<Bath />} label={tc('baths')} className="md:col-span-1">
               <Select
                 value={form.baths}
                 onChange={(v) => setForm({ ...form, baths: v })}
@@ -135,10 +136,10 @@ function Field({
   className?: string;
 }) {
   return (
-    <label className={`flex items-center gap-3 rounded-xl border border-white/[0.06] bg-ink-800/40 px-4 py-3 transition-colors focus-within:border-gold/40 ${className}`}>
-      <span className="text-gold/80 [&_svg]:h-4 [&_svg]:w-4">{icon}</span>
-      <span className="flex-1">
-        <span className="block text-[10px] uppercase tracking-[0.28em] text-ivory/45">{label}</span>
+    <label className={`flex items-center gap-3 overflow-hidden rounded-xl border border-white/[0.06] bg-ink-800/40 px-4 py-3 transition-colors focus-within:border-gold/40 ${className}`}>
+      <span className="shrink-0 text-gold/80 [&_svg]:h-4 [&_svg]:w-4">{icon}</span>
+      <span className="min-w-0 flex-1">
+        <span className="block truncate text-[10px] uppercase tracking-[0.2em] text-ivory/45">{label}</span>
         {children}
       </span>
     </label>

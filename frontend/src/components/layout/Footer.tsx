@@ -3,11 +3,21 @@ import { Link } from '@/i18n/routing';
 import { Instagram, Facebook, Linkedin, Youtube, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { phoneLink, whatsappLink } from '@/lib/utils';
 
-export default function Footer() {
+interface FooterBrand {
+  name?: string;
+  tagline?: string;
+  logo?: string;
+}
+
+export default function Footer({ brand }: { brand?: FooterBrand } = {}) {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
   const tBrand = useTranslations('brand');
   const tSvc = useTranslations('services.items');
+
+  const brandName = brand?.name || tBrand('name');
+  const brandTagline = brand?.tagline || tBrand('tagline');
+  const logoUrl = brand?.logo;
 
   const year = new Date().getFullYear();
 
@@ -22,9 +32,18 @@ export default function Footer() {
       <div className="container-luxe relative">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="font-display text-3xl text-ivory">{tBrand('name')}</p>
+            {logoUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logoUrl}
+                alt={brandName}
+                className="h-24 w-auto max-w-[380px] object-contain"
+              />
+            ) : (
+              <p className="font-display text-3xl text-ivory">{brandName}</p>
+            )}
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ivory/65">
-              {tBrand('tagline')}
+              {brandTagline}
             </p>
             <div className="mt-6 space-y-3 text-sm">
               <FooterRow icon={<MapPin className="h-4 w-4" />} label={t('address_label')} value={t('address')} />

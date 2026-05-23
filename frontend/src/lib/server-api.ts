@@ -171,6 +171,30 @@ export const testimonialsApi = {
   },
 };
 
+// ---------- Settings ----------
+
+export interface SiteSettings {
+  brand?: { name?: string; tagline?: string; logo?: string; favicon?: string };
+  contact?: {
+    phone?: string; whatsapp?: string; email?: string;
+    address?: string; hours?: string; mapUrl?: string;
+  };
+  social?: {
+    instagram?: string; facebook?: string; linkedin?: string;
+    youtube?: string; twitter?: string; tiktok?: string;
+  };
+  hero?: { videoUrl?: string; poster?: string; eyebrow?: string; title?: string; subtitle?: string };
+  seo?: { defaultTitle?: string; defaultDescription?: string; ogImage?: string; gaId?: string; gtmId?: string };
+  rera?: { orn?: string; license?: string; brn?: string };
+}
+
+export const settingsApi = {
+  async get(): Promise<SiteSettings> {
+    const res = await get<{ status: 'success'; data: SiteSettings }>('/settings');
+    return res.data ?? {};
+  },
+};
+
 // ---------- Generic fallback helpers ----------
 
 /**
