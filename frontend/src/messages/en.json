@@ -1,0 +1,474 @@
+{
+  "brand": {
+    "name": "Luxe Estates",
+    "tagline": "Dubai's premier address for luxury real estate"
+  },
+  "nav": {
+    "home": "Home",
+    "properties": "Properties",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "blog": "Insights",
+    "contact": "Contact",
+    "language": "Language",
+    "cta": "Book Consultation"
+  },
+  "hero": {
+    "eyebrow": "Dubai · Off-Plan · Resale · Luxury",
+    "title_pre": "Live the",
+    "title_mark": "Skyline",
+    "title_post": "of Dubai",
+    "subtitle": "Curated penthouses, branded residences and investment-grade off-plan opportunities — sourced for the world's most discerning buyers.",
+    "cta_explore": "Explore Properties",
+    "cta_consult": "Book Consultation",
+    "cta_whatsapp": "WhatsApp",
+    "scroll": "Scroll"
+  },
+  "search": {
+    "title": "Find your address",
+    "location": "Location",
+    "location_ph": "Palm Jumeirah, Downtown…",
+    "type": "Property Type",
+    "type_any": "Any type",
+    "price": "Price Range",
+    "price_any": "Any price",
+    "beds": "Bedrooms",
+    "beds_any": "Any",
+    "baths": "Bathrooms",
+    "baths_any": "Any",
+    "status": "Status",
+    "status_any": "Any status",
+    "submit": "Search"
+  },
+  "featured": {
+    "eyebrow": "Featured",
+    "title": "Signature residences",
+    "subtitle": "A private selection of our most sought-after listings, refreshed weekly.",
+    "view_all": "View all properties"
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "End-to-end real estate, refined",
+    "subtitle": "From sourcing your first investment to managing a global portfolio — one trusted partner.",
+    "items": {
+      "sales": { "t": "Property Sales", "d": "Off-plan and ready resale across Dubai's prime communities." },
+      "buying": { "t": "Property Buying", "d": "Personal acquisition advisors for primary and second homes." },
+      "rentals": { "t": "Property Rentals", "d": "Long-term and short-let homes vetted to luxury standards." },
+      "commercial": { "t": "Commercial Real Estate", "d": "Office, retail and F&B units in flagship developments." },
+      "villas": { "t": "Luxury Villas", "d": "Beachfront mansions and private island estates." },
+      "apartments": { "t": "Apartments", "d": "Branded residences in Downtown, Marina and Palm." },
+      "penthouses": { "t": "Penthouses", "d": "Sky-collection penthouses with panoramic skyline views." },
+      "investment": { "t": "Investment Opportunities", "d": "Curated, yield-driven portfolios with full diligence." },
+      "broker": { "t": "Broker Services", "d": "White-glove brokerage from listing to handover." },
+      "marketing": { "t": "Marketing Services", "d": "Cinematic media and global lead generation for developers." },
+      "owned": { "t": "Company-owned Sales", "d": "Exclusive inventory owned and priced directly by us." },
+      "partners": { "t": "Investor Partnerships", "d": "Joint-venture, co-ownership and syndicated deals." },
+      "management": { "t": "Property Management", "d": "Snagging, leasing, maintenance and reporting — fully managed." },
+      "offplan": { "t": "Off-plan Projects", "d": "Priority access to launches before public release." },
+      "consultancy": { "t": "Real Estate Consultancy", "d": "Strategy, valuation and exit advisory for HNW clients." },
+      "mortgage": { "t": "Mortgage Assistance", "d": "Pre-approval and structuring with our banking partners." },
+      "visa": { "t": "Golden Visa Assistance", "d": "End-to-end residency through qualifying investments." },
+      "international": { "t": "International Investors", "d": "Multi-currency, remote-closing and concierge onboarding." }
+    },
+    "learn_more": "Learn more"
+  },
+  "stats": {
+    "eyebrow": "By the numbers",
+    "title": "A decade in the making",
+    "items": {
+      "sold": { "v": "1.8", "u": "B AED", "l": "Property sold" },
+      "deals": { "v": "2400", "u": "+", "l": "Deals closed" },
+      "agents": { "v": "120", "u": "+", "l": "Licensed advisors" },
+      "countries": { "v": "47", "u": "", "l": "Investor nationalities" }
+    }
+  },
+  "luxury": {
+    "eyebrow": "Signature collection",
+    "title": "The villas redefining Dubai",
+    "subtitle": "Beachfront, golf-front and skyline-front estates — handpicked.",
+    "cta": "View collection"
+  },
+  "investors": {
+    "eyebrow": "For investors",
+    "title": "Returns engineered for Dubai",
+    "subtitle": "We model every opportunity on gross yield, capital appreciation and exit horizon — so you invest with the same rigour we do.",
+    "points": {
+      "yield": { "t": "6–9% net rental yields", "d": "Across our curated short-let and long-let portfolios." },
+      "tax": { "t": "0% personal income tax", "d": "Capital gains and rental income remain with you." },
+      "visa": { "t": "10-year Golden Visa", "d": "Qualifying investments unlock long-term residency." },
+      "growth": { "t": "Capital appreciation", "d": "Dubai's prime segment grew 19% YoY in our coverage." }
+    },
+    "cta": "Request investor brief"
+  },
+  "why": {
+    "eyebrow": "Why Luxe Estates",
+    "title": "Trusted by the world's discerning",
+    "items": {
+      "concierge": { "t": "True concierge", "d": "A single advisor, end-to-end — discreet, multilingual, always-on." },
+      "data": { "t": "Data-driven", "d": "Live market data and AI-assisted valuation on every deal." },
+      "global": { "t": "Global desk", "d": "Offices and partners across London, Mumbai, Moscow and Riyadh." },
+      "aftercare": { "t": "Aftercare", "d": "Snagging, furnishing, leasing and resale handled in-house." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Client voices",
+    "title": "Words from our clients",
+    "items": [
+      {
+        "q": "From sourcing to handover, the team operated at a level I haven't seen anywhere else in Dubai. Three transactions in, and they remain my first call.",
+        "n": "H. Al Mansoori",
+        "r": "Family Office Principal"
+      },
+      {
+        "q": "They turned a 14-month off-plan acquisition into a refinanced, leased and cash-flowing asset before completion. Outstanding.",
+        "n": "Priya R.",
+        "r": "Private Investor, London"
+      },
+      {
+        "q": "We mandate them on every Palm and Emirates Hills brief. The judgment and discretion are exactly what our clients require.",
+        "n": "Markus W.",
+        "r": "Swiss Wealth Manager"
+      }
+    ]
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Dubai market intelligence",
+    "subtitle": "Research notes, deal stories and the trends shaping our market.",
+    "read": "Read article",
+    "view_all": "All insights"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "items": [
+      { "q": "Can foreign nationals buy property in Dubai?", "a": "Yes. Freehold ownership is available to all nationalities in designated freehold areas including Palm Jumeirah, Downtown, Dubai Marina, Emirates Hills, and many more." },
+      { "q": "What's the minimum investment for the Golden Visa?", "a": "AED 2 million in property — including off-plan from approved developers — qualifies an investor and their family for a 10-year UAE residency visa." },
+      { "q": "Do you handle the entire transaction remotely?", "a": "Absolutely. We complete viewings on cinematic walkthroughs, sign via DLD-approved digital channels, and handle handover, furnishing and leasing on your behalf." },
+      { "q": "What returns can I expect?", "a": "Net rental yields range 5–9% depending on community and strategy. Our advisors will model your specific opportunity with live comparables before you commit." },
+      { "q": "Are there any taxes on rental income?", "a": "The UAE does not impose personal income tax or capital gains tax on individuals. A 4% one-off DLD transfer fee and standard service charges apply." }
+    ]
+  },
+  "newsletter": {
+    "title": "The private list",
+    "subtitle": "Off-market opportunities and quarterly market notes — to a small list of qualified investors.",
+    "placeholder": "Your email address",
+    "submit": "Subscribe",
+    "consent": "We respect your privacy. Unsubscribe anytime."
+  },
+  "footer": {
+    "address_label": "Office",
+    "address": "Level 42, Burj Daman, DIFC, Dubai, UAE",
+    "phone_label": "Call",
+    "email_label": "Email",
+    "hours_label": "Hours",
+    "hours": "Sun – Thu · 9:00 – 19:00",
+    "social": "Follow",
+    "rights": "All rights reserved.",
+    "rera": "RERA · ORN 00000 · License 000000"
+  },
+  "common": {
+    "from": "From",
+    "aed": "AED",
+    "beds": "Beds",
+    "baths": "Baths",
+    "sqft": "sqft",
+    "featured": "Featured",
+    "trending": "Trending",
+    "new": "New launch",
+    "view_details": "View details"
+  },
+  "properties_index": {
+    "hero_eyebrow": "Properties",
+    "hero_title": "The collection",
+    "hero_subtitle": "Penthouses, villas, off-plan launches and branded residences — curated across Dubai's prime communities.",
+    "filters": "Filters",
+    "filters_clear": "Clear all",
+    "filters_apply": "Apply",
+    "active_filters": "Active filters",
+    "sort_label": "Sort",
+    "sort_newest": "Newest",
+    "sort_price_asc": "Price · Low to High",
+    "sort_price_desc": "Price · High to Low",
+    "sort_popular": "Most viewed",
+    "results_count": "{count, plural, =0 {No properties} =1 {1 property} other {# properties}}",
+    "empty_title": "No properties match your filters",
+    "empty_body": "Loosen a filter or two — or contact us and we'll source it off-market.",
+    "page_label": "Page",
+    "next": "Next",
+    "prev": "Previous",
+    "loading": "Loading"
+  },
+  "property_detail": {
+    "back": "Back to properties",
+    "view_gallery": "View {count} photos",
+    "share": "Share",
+    "share_native": "Share property",
+    "save": "Save",
+    "saved": "Saved",
+    "download_brochure": "Brochure",
+    "virtual_tour": "Virtual tour",
+    "watch_video": "Watch video",
+    "schedule_visit": "Schedule visit",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "specs": {
+      "beds": "Bedrooms",
+      "baths": "Bathrooms",
+      "area": "Area",
+      "parking": "Parking",
+      "type": "Type",
+      "status": "Status",
+      "developer": "Developer",
+      "handover": "Handover",
+      "year": "Year built",
+      "per_sqft": "Price / sqft",
+      "payment_plan": "Payment plan"
+    },
+    "status": {
+      "ready": "Ready",
+      "off-plan": "Off-plan",
+      "resale": "Resale",
+      "rental": "Rental"
+    },
+    "category": {
+      "apartment": "Apartment",
+      "penthouse": "Penthouse",
+      "villa": "Villa",
+      "townhouse": "Townhouse",
+      "commercial": "Commercial",
+      "plot": "Plot"
+    },
+    "section_overview": "Overview",
+    "section_amenities": "Amenities",
+    "section_floor_plans": "Floor plans",
+    "section_location": "Location & nearby",
+    "section_calc": "Calculators",
+    "section_video": "Video & tour",
+    "section_inquire": "Enquire",
+    "section_similar": "You may also like",
+    "nearby_title": "Nearby",
+    "nearby_types": {
+      "school": "Schools",
+      "hospital": "Hospitals",
+      "mall": "Malls",
+      "metro": "Metro",
+      "beach": "Beaches",
+      "airport": "Airport",
+      "restaurant": "Dining",
+      "other": "Nearby"
+    },
+    "agent_title": "Your advisor",
+    "license": "License",
+    "investment_score": "Investment score",
+    "expected_roi": "Expected ROI",
+    "calc": {
+      "mortgage_title": "Mortgage estimator",
+      "mortgage_lead": "Indicative — your bank will price your offer based on residency, income and LTV.",
+      "down_payment": "Down payment",
+      "loan_term_years": "Loan term (years)",
+      "interest_rate": "Interest rate (%)",
+      "monthly_payment": "Estimated monthly",
+      "total_payment": "Total payable",
+      "loan_amount": "Loan amount",
+      "roi_title": "ROI estimator",
+      "roi_lead": "Modelled on community average rental yield. Speak to an advisor for a granular forecast.",
+      "annual_rent": "Estimated annual rent",
+      "gross_yield": "Gross yield",
+      "net_yield": "Net yield (est.)",
+      "service_charge": "Service charge (AED/sqft)",
+      "occupancy": "Occupancy rate (%)"
+    },
+    "inquiry": {
+      "title": "Speak to an advisor",
+      "subtitle": "Request a private viewing or full financials. We respond within an hour.",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "message_ph": "Tell us your timeline and questions…",
+      "submit": "Send enquiry",
+      "sending": "Sending…",
+      "success_title": "Thank you",
+      "success_body": "Your enquiry is with our advisors — expect a reply shortly.",
+      "error": "Something went wrong. Please try again or WhatsApp us directly."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "properties": "Properties"
+    }
+  },
+  "services_page": {
+    "hero_eyebrow": "Services",
+    "hero_title": "End-to-end, refined",
+    "hero_subtitle": "From sourcing your first investment to managing a global portfolio — every step handled by a single trusted partner.",
+    "groups": {
+      "buy_sell": "Buying & Selling",
+      "invest": "Investment",
+      "manage": "Management & Consultancy",
+      "concierge": "Concierge & International"
+    },
+    "cta_title": "Speak with an advisor",
+    "cta_body": "Tell us what you're looking to achieve. We'll route your enquiry to the right specialist within an hour.",
+    "cta_button": "Book consultation"
+  },
+  "about": {
+    "hero_eyebrow": "About",
+    "hero_title": "A decade in Dubai's prime address",
+    "hero_subtitle": "We exist to bring clarity, discretion and lasting value to the world's most sophisticated buyers and investors.",
+    "story_eyebrow": "Our story",
+    "story_title": "Born in Dubai. Built for the discerning.",
+    "story_body_1": "Luxe Estates was founded in 2015 with a singular conviction — that the world's most ambitious investors deserve advisors who match their standards. From a small team of three working out of a serviced suite in DIFC, we have grown into one of the most trusted private brokerages in the UAE.",
+    "story_body_2": "What hasn't changed is our principle: discretion above noise, judgment above transaction, the long client relationship above any single deal.",
+    "values_eyebrow": "Our values",
+    "values_title": "What we stand for",
+    "values": {
+      "integrity": { "t": "Integrity", "d": "We give you the answer, not the answer you want to hear. Always." },
+      "excellence": { "t": "Excellence", "d": "From the first viewing to the final handover, we operate at a single standard — the highest." },
+      "discretion": { "t": "Discretion", "d": "Many of our finest opportunities never reach the open market. Neither does any detail of our clients' business." },
+      "longview": { "t": "The long view", "d": "We measure success in decades of trust — never in this quarter's commissions." }
+    },
+    "team_eyebrow": "The team",
+    "team_title": "Advisors who think like principals",
+    "team_subtitle": "Multilingual, multi-jurisdiction, and personally invested in every brief.",
+    "awards_eyebrow": "Recognition",
+    "awards_title": "A decade of distinction",
+    "cta_title": "Speak to a senior advisor",
+    "cta_body": "Tell us what matters to you — we'll match you with the right specialist.",
+    "cta_button": "Get in touch"
+  },
+  "contact": {
+    "hero_eyebrow": "Contact",
+    "hero_title": "Let's talk",
+    "hero_subtitle": "Whether you're acquiring, selling, leasing or simply exploring Dubai — we'd be glad to help.",
+    "form_title": "Send us a message",
+    "form_subtitle": "Tell us briefly what you're looking for. A senior advisor will respond within an hour during business hours.",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "interest": "I'm interested in",
+    "interest_buying": "Buying a property",
+    "interest_selling": "Selling a property",
+    "interest_renting": "Renting",
+    "interest_investing": "Investment opportunities",
+    "interest_other": "Something else",
+    "message": "Your message",
+    "message_ph": "Tell us a little about your requirements…",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success_title": "Message received",
+    "success_body": "Thank you. A member of our team will reach out shortly.",
+    "error": "Something went wrong — please try again or message us on WhatsApp.",
+    "info_title": "Other ways to reach us",
+    "office": "Office",
+    "phone_label": "Phone",
+    "whatsapp_label": "WhatsApp",
+    "email_label": "Email",
+    "hours_label": "Office hours",
+    "hours": "Sun – Thu · 9:00 – 19:00",
+    "map_title": "Visit us",
+    "directions": "Get directions"
+  },
+  "blog_index": {
+    "hero_eyebrow": "Insights",
+    "hero_title": "Dubai market intelligence",
+    "hero_subtitle": "Research notes, deal stories and the trends shaping our market — written by the people closing the deals.",
+    "all": "All",
+    "results_count": "{count, plural, =0 {No articles} =1 {1 article} other {# articles}}",
+    "empty": "No articles in this category yet.",
+    "read": "Read article"
+  },
+  "projects_page": {
+    "hero_eyebrow": "Projects",
+    "hero_title": "Off-plan launches & flagship developments",
+    "hero_subtitle": "Priority access to the developments shaping the next chapter of Dubai — from frond-launches to branded skylines, sourced before public release.",
+    "featured_eyebrow": "Featured launch",
+    "all_eyebrow": "Off-plan inventory",
+    "all_title": "Live off-plan projects",
+    "all_subtitle": "Every project on our books today — with payment plans, handover dates and developer detail.",
+    "communities_eyebrow": "Ready & branded",
+    "communities_title": "Flagship communities",
+    "communities_subtitle": "The addresses we transact across most often. Ready stock and resale opportunities.",
+    "developer": "Developer",
+    "handover": "Handover",
+    "payment_plan": "Payment plan",
+    "from_price": "Starting from",
+    "view_project": "View project",
+    "explore_community": "Explore",
+    "by_developer": "By developer",
+    "empty_title": "No off-plan inventory live right now",
+    "empty_body": "We source off-market and pre-launch on request. Tell us your brief and we'll come back to you with a curated list within 48 hours.",
+    "cta_title": "Looking for something specific?",
+    "cta_body": "We have access to nearly every Dubai launch before it hits the market — talk to us about your brief and we'll source it.",
+    "cta_button": "Request a private brief"
+  },
+  "saved": {
+    "hero_eyebrow": "Saved",
+    "hero_title": "Your shortlist",
+    "hero_subtitle": "Properties you've saved for later. Stored privately on this device.",
+    "empty_title": "Nothing saved yet",
+    "empty_body": "Tap the heart on any property to add it here.",
+    "browse": "Browse properties",
+    "clear_all": "Clear shortlist",
+    "count": "{count, plural, =0 {No saved properties} =1 {1 saved property} other {# saved properties}}"
+  },
+  "compare": {
+    "tray_title": "Compare",
+    "tray_count": "{count}/{max} selected",
+    "tray_open": "Compare now",
+    "tray_clear": "Clear",
+    "card_action_add": "Add to compare",
+    "card_action_remove": "Remove from compare",
+    "card_action_full": "Selection full",
+    "hero_eyebrow": "Compare",
+    "hero_title": "Side by side",
+    "hero_subtitle": "Stack up the numbers across your shortlisted properties.",
+    "empty_title": "No properties selected",
+    "empty_body": "Pick two or three from the listing — we'll line them up here.",
+    "browse": "Browse properties",
+    "back": "Back to properties",
+    "field": {
+      "image": "Image",
+      "title": "Property",
+      "price": "Price",
+      "location": "Location",
+      "type": "Type",
+      "status": "Status",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "area": "Area",
+      "parking": "Parking",
+      "developer": "Developer",
+      "handover": "Handover",
+      "year": "Year built",
+      "pricePerSqft": "Price / sqft",
+      "paymentPlan": "Payment plan",
+      "investmentScore": "Investment score",
+      "roi": "Expected ROI",
+      "amenities": "Amenities",
+      "actions": "View"
+    }
+  },
+  "map_view": {
+    "list": "List",
+    "map": "Map",
+    "popup_view": "View details"
+  },
+  "blog_detail": {
+    "back": "All insights",
+    "by": "By",
+    "read_time": "{minutes} min read",
+    "share": "Share",
+    "copy_link": "Copy link",
+    "copied": "Link copied",
+    "author_title": "About the author",
+    "related_title": "Continue reading",
+    "newsletter_title": "Get our briefings",
+    "newsletter_body": "Quarterly market notes and off-market opportunities to a small list of qualified investors.",
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Insights"
+    }
+  }
+}
