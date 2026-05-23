@@ -7,6 +7,7 @@ import uploadRoutes from './upload.routes';
 import settingsRoutes from './settings.routes';
 import testimonialRoutes from './testimonial.routes';
 import newsletterRoutes from './newsletter.routes';
+import chatRoutes from './chat.routes';
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use('/newsletter', newsletterRoutes);
 router.use('/testimonials', testimonialRoutes);
 router.use('/settings', settingsRoutes);
 router.use('/uploads', uploadRoutes);
+router.use('/chat', chatRoutes);
 
 export default router;

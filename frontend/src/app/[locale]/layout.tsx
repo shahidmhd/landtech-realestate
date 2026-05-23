@@ -11,6 +11,7 @@ import FloatingCTAs from '@/components/layout/FloatingCTAs';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import StructuredData from '@/components/seo/StructuredData';
 import CompareTray from '@/components/properties/CompareTray';
+import ChatWidget from '@/components/chat/ChatWidget';
 import { settingsApi, tryOrFallback } from '@/lib/server-api';
 import '../globals.css';
 
@@ -161,6 +162,7 @@ export default async function LocaleLayout({
           <Footer brand={brand} />
           <FloatingCTAs />
           <CompareTray />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

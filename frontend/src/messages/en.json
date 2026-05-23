@@ -379,6 +379,23 @@
     "empty": "No articles in this category yet.",
     "read": "Read article"
   },
+  "chat": {
+    "button_open": "Chat with our advisor",
+    "button_close": "Close chat",
+    "header_title": "Property assistant",
+    "header_subtitle": "Powered by Gemini · live catalog",
+    "greeting": "Hi — I'm here to help you explore Dubai's luxury market. Tell me what you're looking for, or ask me anything.",
+    "suggestion_1": "Show me 3-bed villas under AED 30M",
+    "suggestion_2": "What's the best off-plan launch right now?",
+    "suggestion_3": "Do I qualify for the Golden Visa?",
+    "input_placeholder": "Type your message…",
+    "input_send": "Send",
+    "error_generic": "Something went wrong. Try again in a moment.",
+    "error_rate_limit": "You're sending messages too quickly. Please wait a moment.",
+    "footer_disclaimer": "AI assistant — verify important details with a human advisor.",
+    "thinking": "Thinking…",
+    "view_property": "View property"
+  },
   "projects_page": {
     "hero_eyebrow": "Projects",
     "hero_title": "Off-plan launches & flagship developments",

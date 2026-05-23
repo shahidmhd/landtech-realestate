@@ -17,6 +17,12 @@ const schema = z.object({
   CLOUDINARY_API_KEY: z.string().optional(),
   CLOUDINARY_API_SECRET: z.string().optional(),
 
+  // Google Gemini — powers the AI property assistant chatbot via Google AI
+  // Studio. Free tier available at https://aistudio.google.com/apikey. The
+  // /chat endpoint returns 503 if not set, so the rest of the API stays usable.
+  GEMINI_API_KEY: z.string().optional(),
+  GEMINI_MODEL: z.string().default('gemini-2.5-flash'),
+
   CORS_ORIGINS: z.string().default('http://localhost:3000'),
 
   SMTP_HOST: z.string().optional(),

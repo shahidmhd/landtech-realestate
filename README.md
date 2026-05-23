@@ -197,6 +197,34 @@ Base: `${API_PREFIX}` (default `/api/v1`)
 
 ---
 
+## AI property assistant (chatbot)
+
+A floating chat widget on every public page, powered by **Google Gemini** through Google AI Studio. The widget streams responses over SSE and can recommend specific properties from the live catalog by embedding `[[property:slug]]` markers that the frontend renders as inline cards.
+
+**Setup (free tier):**
+1. Get a free API key at https://aistudio.google.com/apikey
+2. Add to `backend/.env`:
+   ```
+   GEMINI_API_KEY=AIza...
+   GEMINI_MODEL=gemini-2.5-flash      # default — generous free tier
+   ```
+3. Restart the backend. The launcher button (gold sparkle, bottom-right / bottom-left in RTL) appears on every public page.
+
+**Free-tier limits** (as of Google AI Studio launch pricing):
+- `gemini-2.5-flash` — 10 RPM, 250K TPM, **250 requests per day**
+- `gemini-2.5-flash-lite` — 15 RPM, 250K TPM, **1,000 requests per day** (lighter, even cheaper to upgrade)
+
+For a typical real-estate site this comfortably handles ~50-100 conversations per day on the free tier. When you outgrow it, the same model on paid tier costs roughly **$0.075 per 1M input tokens / $0.30 per 1M output tokens** — a Claude Opus 4.7 conversation costs 10-20× more.
+
+**How it works:**
+- Backend `POST /api/v1/chat` builds a system instruction with the entire published property catalog and streams from Gemini
+- Catalog is in-process cached for 2 minutes to avoid re-querying Mongo on every chat turn
+- Per-IP rate limit: 20 messages per 5 minutes (in addition to the global API limit)
+- If `GEMINI_API_KEY` is not set, the endpoint returns 503 cleanly — the rest of the API stays operational
+- Visitor's locale (`en`/`ar`) is passed through so Gemini responds in the right language
+
+---
+
 ## Seed demo data
 
 The frontend ships with a mock dataset of 12 properties, 6 blog posts and 3 testimonials. Once the backend is running you can load the same dataset into Mongo so the public site renders from the real API:
